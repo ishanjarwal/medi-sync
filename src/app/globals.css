@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary: #ff2f2f;
+  --secondary: #000;
+  --bg: #ffe7e7;
+  --softBg: #fff4f4;
+  --darkBg: #171717;
+  --darkSoftBg: #282828;
+  --hoverBg: #ff0000;
+  --darkHoverBg: #ff0000;
+}

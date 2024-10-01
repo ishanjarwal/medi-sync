@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        "primary": "var(--primary)",
+        "bg": "var(--bg)",
+        "softBg": "var(--softBg)",
+        "darkBg": "var(--darkBg)",
+        "darkSoftBg": "var(--darkSoftBg)",
+        "hoverBg": "var(--hoverBg)",
+        "darkHoverBg": "var(--darkHoverBg)",
+      }
     },
   },
   plugins: [],
