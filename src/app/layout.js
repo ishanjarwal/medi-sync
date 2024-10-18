@@ -3,6 +3,7 @@ import "./globals.css";
 import ThemeProvider from "@/providers/ThemeProvider";
 import { ThemeContextProvider } from "@/contexts/ThemeContext";
 import StoreProvider from "@/providers/StoreProvider";
+import AuthProvider from "@/providers/AuthProvider";
 
 
 const geistSans = localFont({
@@ -27,13 +28,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <StoreProvider>
-          <ThemeContextProvider>
-            <ThemeProvider>
-              {children}
-            </ThemeProvider>
-          </ThemeContextProvider>
-        </StoreProvider>
+        <AuthProvider>
+          <StoreProvider>
+            <ThemeContextProvider>
+              <ThemeProvider>
+                {children}
+              </ThemeProvider>
+            </ThemeContextProvider>
+          </StoreProvider>
+        </AuthProvider>
       </body>
     </html>
   );

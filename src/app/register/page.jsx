@@ -3,7 +3,7 @@ import Logo from '@/components/Logo'
 import ThemeToggleButton from '@/components/ThemeToggleButton'
 import { Switch } from '@/components/ui/switch'
 import FeatureSlider from '@/features/auth/components/FeatureSlider'
-import LoginForm from '@/features/auth/components/LoginForm'
+import RegisterForm from '@/features/auth/components/RegisterForm'
 import Image from 'next/image'
 
 const page = () => {
@@ -17,10 +17,10 @@ const page = () => {
                     </div>
                     <div className='mt-8'>
                         <h1 className='text-3xl font-bold dark:text-white'>Welcome</h1>
-                        <p className='mt-2 text-black/50 dark:text-white'>Login to get started</p>
+                        <p className='mt-2 text-black/50 dark:text-white'>Create a new Account</p>
                     </div>
                     <div className='mt-8 w-full'>
-                        <LoginForm />
+                        <RegisterForm />
                     </div>
                 </div>
             </div>

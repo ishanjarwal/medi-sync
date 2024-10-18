@@ -1,0 +1,29 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  PATIENT
+  ADMIN
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String   @unique
+  role      Role     @default(PATIENT)
+  image     String?
+  createdAt DateTime @default(now())
+}
+
+model Results {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  response  String
+  createdAt DateTime @default(now())
+}

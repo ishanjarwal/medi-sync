@@ -1,14 +1,15 @@
 import Authenticated from '@/components/Authenticated'
 import Header from '@/components/Header'
-import Form from '@/features/appointment/components/Form'
+import FormProgression from '@/features/ai/components/FormProgression'
 import Image from 'next/image'
 import React from 'react'
 
 const page = () => {
+
     return (
         <Authenticated>
             <div className='relative h-screen flex w-full'>
-                <div className='relative lg:w-[70%] w-full h-full overflow-y-auto  backdrop-blur-md bg-primary-foreground/90 dark:bg-black/90 scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-primary dark:scrollbar-track-black primary-foreground scrollbar-track-white'>
+                <div className='relative lg:w-[70%] w-full h-full overflow-y-auto  backdrop-blur-md bg-gradient-to-tr from-rose-300 via-white to-rose-300 dark:from-[#000] dark:via-black dark:to-[#000] scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-primary dark:scrollbar-track-black primary-foreground scrollbar-track-white'>
                     <div className='lg:py-16 py-8 xl:px-32 md:px-16 px-8'>
                         <div>
                             <Header />
@@ -16,13 +17,15 @@ const page = () => {
                         <div className='mt-8 w-full'>
                             <div>
                                 <h1 className='dark:text-white text-4xl font-bold'>
-                                    Request a New Appointment
+                                    Diagnose your disease with AI
                                 </h1>
-                                <p className='dark:text-white mt-4'>
-                                    Create a New Appointment
-                                </p>
+                                {/* <p className='dark:text-white mt-4'>
+                                Describe about your symptoms
+                            </p> */}
                             </div>
-                            <Form />
+                            <div>
+                                <FormProgression />
+                            </div>
                         </div>
                     </div>
                 </div>

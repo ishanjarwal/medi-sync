@@ -1,10 +1,36 @@
 import Authenticated from '@/components/Authenticated'
 import Header from '@/components/Header'
-import Form from '@/features/appointment/components/Form'
+import Results from '@/features/ai/components/Results'
+import axios from 'axios'
 import Image from 'next/image'
+import Link from 'next/link'
+import { redirect } from 'next/navigation'
+import { parse } from 'postcss'
 import React from 'react'
+import { get } from 'react-hook-form'
 
-const page = () => {
+async function fetchResult(id) {
+    try {
+        const url = `${process.env.NEXT_PUBLIC_ROOT}/api/ai/` + id;
+        console.log(url)
+        const response = await axios.get(url);
+        if (response.status == 200) {
+            return response.data;
+        } else {
+            return redirect("/not-found");
+        }
+    } catch (error) {
+        console.log(error)
+        return redirect("/error");
+    }
+}
+
+const page = async ({ params }) => {
+    const { id } = params;
+    const result = await fetchResult(id);
+    const data = JSON.parse(result.response);
+    // console.log(res)
+
     return (
         <Authenticated>
             <div className='relative h-screen flex w-full'>
@@ -16,13 +42,15 @@ const page = () => {
                         <div className='mt-8 w-full'>
                             <div>
                                 <h1 className='dark:text-white text-4xl font-bold'>
-                                    Request a New Appointment
+                                    Diagnosis Results
                                 </h1>
                                 <p className='dark:text-white mt-4'>
-                                    Create a New Appointment
+                                    The following possible diseases has been found according to your symptoms.
                                 </p>
                             </div>
-                            <Form />
+                            <div className='mt-8'>
+                                <Results data={data} />
+                            </div>
                         </div>
                     </div>
                 </div>

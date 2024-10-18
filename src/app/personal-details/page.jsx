@@ -1,6 +1,7 @@
 import Authenticated from '@/components/Authenticated'
 import Header from '@/components/Header'
-import Form from '@/features/appointment/components/Form'
+import ThemeToggleButton from '@/components/ThemeToggleButton'
+import Form from '@/features/user-details/components/Form'
 import Image from 'next/image'
 import React from 'react'
 
@@ -14,14 +15,6 @@ const page = () => {
                             <Header />
                         </div>
                         <div className='mt-8 w-full'>
-                            <div>
-                                <h1 className='dark:text-white text-4xl font-bold'>
-                                    Request a New Appointment
-                                </h1>
-                                <p className='dark:text-white mt-4'>
-                                    Create a New Appointment
-                                </p>
-                            </div>
                             <Form />
                         </div>
                     </div>

@@ -89,3 +89,48 @@
 .shad-input {
   @apply bg-transparent border-none rounded-none focus-visible:ring-0 focus-visible:ring-offset-0 !important;
 }
+
+/* phone input overrides */
+.input-phone {
+  @apply mt-2 h-12 rounded-lg px-3 text-sm border-2 border-input ring-ring py-1 bg-white dark:bg-black !important;
+}
+
+.input-phone:focus-within {
+  @apply ring-2;
+}
+
+.PhoneInputInput {
+  outline: none;
+  margin-left: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff7d;
+  background-color: transparent;
+}
+
+.PhoneInputInput::placeholder {
+  color: #1a1d21;
+}
+
+.dark .PhoneInputCountrySelectArrow {
+  color: #fff;
+}
+
+.dark .PhoneInputCountryIcon {
+  color: #fff;
+}
+
+.dark .shad-select-content {
+  @apply bg-black border border-red-700 !important;
+}
+
+
+/* =====  REACT-DATEPICKER OVERRIDES */
+
+.react-date-picker__wrapper {
+  @apply border-none ms-2 !important;
+}
+
+.react-date-picker__inputGroup {
+  @apply outline-none dark:text-white !important;
+}

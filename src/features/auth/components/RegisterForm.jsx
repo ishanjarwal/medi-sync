@@ -1,24 +1,18 @@
 "use client"
 
 import { z } from "zod"
-import { Label } from '@radix-ui/react-label'
 import { Button } from "@/components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
     Form as ShadcnForm,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
 } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
 import { useForm } from "react-hook-form"
 import { FcGoogle } from "react-icons/fc";
 import { FaRegUser } from "react-icons/fa6";
 import { GoLock } from "react-icons/go";
 import CustomFormField from "@/components/CustomFormField"
+import { IoMailOutline } from "react-icons/io5"
+import Link from "next/link"
 
 const formSchema = z.object({
     username: z.string().min(2).max(50),
@@ -44,7 +38,7 @@ const Form = () => {
     return (
         <div>
             <ShadcnForm {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                     <CustomFormField
                         name={"username"}
                         fieldType={"text"}
@@ -54,6 +48,14 @@ const Form = () => {
                         placeholder={"Username"}
                     />
                     <CustomFormField
+                        name={"email"}
+                        fieldType={"text"}
+                        label={"Email"}
+                        icon={<IoMailOutline />}
+                        control={form.control}
+                        placeholder={"Your Email"}
+                    />
+                    <CustomFormField
                         name={"password"}
                         fieldType={"password"}
                         label={"Password"}
@@ -61,9 +63,12 @@ const Form = () => {
                         control={form.control}
                         placeholder={"Password"}
                     />
-                    <Button className="bg-primary text-primary-foreground w-full mt-4" type="submit">Login</Button>
+                    <Button className="bg-primary text-primary-foreground w-full mt-4" type="submit">Register</Button>
                 </form>
             </ShadcnForm>
+            <p className='dark:text-white text-center mt-4'>
+                Already have an account ? <Link className="text-primary font-bold" href={'/login'} >Login</Link>
+            </p>
             <div className="mt-4 flex justify-between items-center py-4 space-x-2">
                 <span className="block flex-1 w-full h-[2px] bg-black/10 dark:bg-white/10"></span>
                 <span className="dark:text-white">OR</span>
